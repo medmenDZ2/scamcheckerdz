@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SCAMCHECK — Scan a QR code</title>
+  <link rel="stylesheet" href="qr-scanner.css" />
+</head>
+<body>
+  <header class="topbar">
+    <img src="icons/icon32.png" alt="" width="22" height="22" />
+    <span class="wordmark">scamcheck</span>
+    <span class="page-title">Scan a QR code</span>
+  </header>
+
+  <main>
+    <div class="scan-area" id="scanArea">
+      <video id="video" autoplay muted playsinline></video>
+      <div class="scan-frame"></div>
+      <p class="hint-overlay" id="hintOverlay">Point your camera at a QR code</p>
+    </div>
+
+    <p class="status-line" id="statusLine">Requesting camera access…</p>
+
+    <div id="resultCard" class="card hidden">
+      <h2>Destination</h2>
+      <p class="destination" id="destinationText"></p>
+      <span class="status-chip" id="statusChip" data-level="unknown">Checking…</span>
+      <p class="summary" id="summaryText"></p>
+      <div class="details" id="detailsBody"></div>
+      <div class="actions">
+        <button id="openBtn" class="btn btn-primary" disabled>Open destination</button>
+        <button id="scanAgainBtn" class="btn btn-ghost">Scan again</button>
+      </div>
+      <p class="never-auto">This link was never opened automatically — nothing loads until you click above.</p>
+    </div>
+  </main>
+
+  <script src="lib/api.js"></script>
+  <script src="lib/billing.js"></script>
+  <script src="qr-scanner.js"></script>
+</body>
+</html>
